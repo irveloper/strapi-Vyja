@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_ui_hero_banners",
+  "info": {
+    "displayName": "HeroBanner",
+    "icon": "cast"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "ui.links"
+    }
+  }
+}
