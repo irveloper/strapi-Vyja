@@ -1,4 +1,3 @@
-version: "3"
 services:
   strapi:
     container_name: strapi
@@ -21,7 +20,7 @@ services:
       - ./config:/opt/app/config
       - ./src:/opt/app/src
       - ./package.json:/opt/package.json
-      - ./yarn.lock:/opt/yarn.lock
+      - ./pnpm.lock:/opt/pnpm.lock
       - ./.env:/opt/app/.env
       - ./public/uploads:/opt/app/public/uploads
     ports:
