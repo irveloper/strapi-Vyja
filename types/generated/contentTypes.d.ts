@@ -669,6 +669,36 @@ export interface ApiPrimaryNavBarPrimaryNavBar extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiSocialLinkSocialLink extends Struct.CollectionTypeSchema {
+  collectionName: 'social_links';
+  info: {
+    displayName: 'SocialLink';
+    pluralName: 'social-links';
+    singularName: 'social-link';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    icon: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::social-link.social-link'
+    > &
+      Schema.Attribute.Private;
+    network: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    url: Schema.Attribute.String;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -1183,6 +1213,7 @@ declare module '@strapi/strapi' {
       'api::live-date.live-date': ApiLiveDateLiveDate;
       'api::page.page': ApiPagePage;
       'api::primary-nav-bar.primary-nav-bar': ApiPrimaryNavBarPrimaryNavBar;
+      'api::social-link.social-link': ApiSocialLinkSocialLink;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
